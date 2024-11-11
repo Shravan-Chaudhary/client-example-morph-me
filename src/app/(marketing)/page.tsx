@@ -1,8 +1,6 @@
+'use client'
 import { Container, Wrapper } from '@/components'
-import SpellcastingLoader from '@/components/global/spell-casting-loader'
 import { AnimatedShinyPill } from '@/components/ui/animated-shiny-pill'
-import AnimatedShinyText from '@/components/ui/animated-shiny-text'
-import { BorderBeam } from '@/components/ui/border-beam'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -16,10 +14,9 @@ import Marquee from '@/components/ui/marquee'
 import SectionBadge from '@/components/ui/section-badge'
 import { features, pricingCards, process, reviews } from '@/constants'
 import { cn } from '@/lib/utils'
-import { ArrowRight, ChevronRight, User, Zap } from 'lucide-react'
+import { ArrowRight, User, Zap } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 const HomePage = () => {
   const firstRow = reviews.slice(0, reviews.length / 2)
@@ -29,7 +26,7 @@ const HomePage = () => {
     <section className='w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8'>
       {/* Hero */}
       <Wrapper>
-        <Container>
+        <Container className='z-10'>
           <div className='flex flex-col items-center justify-center py-16 md:py-20 w-full'>
             <AnimatedShinyPill />
             <div className='flex flex-col items-center mt-8 max-w-3xl mx-auto w-11/12 md:w-full'>

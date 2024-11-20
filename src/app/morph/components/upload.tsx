@@ -76,7 +76,6 @@ export default function Upload({ onUploadComplete, onDelete }: UploadProps) {
           method: 'POST',
           body: formData,
           headers: {
-            'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
           },
         },

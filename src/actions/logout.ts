@@ -3,8 +3,8 @@
 import { cookies } from 'next/headers'
 
 const logout = async () => {
-  const cookieStore = await cookies()
-  cookieStore.delete('accessToken')
+  ;(await cookies()).set('accessToken', '', { maxAge: 0 })
+  ;(await cookies()).delete('accessToken')
 }
 
 export default logout

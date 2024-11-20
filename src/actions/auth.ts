@@ -54,6 +54,7 @@ export default async function auth(code: string) {
     return {
       type: 'success',
       message: parsedAccessToken,
+      token: parsedAccessToken.accessToken,
     }
   } catch (error) {
     return {

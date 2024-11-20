@@ -28,6 +28,10 @@ const LoginCard = () => {
           console.log('action response: ', res.message)
           return
         }
+        // Store in localStorage
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('accessToken', res.token as string)
+        }
         console.log('action response: ', res.message)
         window.location.href = '/morph'
       } catch (error) {

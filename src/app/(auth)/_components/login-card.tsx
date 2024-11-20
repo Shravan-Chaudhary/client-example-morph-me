@@ -1,5 +1,6 @@
 'use client'
 
+import auth from '@/actions/auth'
 import { Icons } from '@/components'
 import { useToast } from '@/components/hooks/use-toast'
 import { Button } from '@/components/ui/button'
@@ -15,16 +16,8 @@ const LoginCard = () => {
     onSuccess: async (token) => {
       // console.log('token from google: ', token)
       try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google/callback?code=${token.code}`,
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          },
-        )
-        if (!res.ok) {
+        const res = await auth(token.code)
+        if (res.type === 'error') {
           toast({
             variant: 'destructive',
             title: 'Error',
@@ -33,9 +26,8 @@ const LoginCard = () => {
           })
           return
         }
-        const data = await res.json()
-        console.log('outhresponse: ', data)
-        console.log('data: ', data)
+        console.log('action response: ', res.message)
+        // console.log('data: ', data)
         window.location.href = '/morph'
       } catch (error) {
         toast({

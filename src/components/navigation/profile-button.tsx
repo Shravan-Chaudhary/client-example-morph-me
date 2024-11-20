@@ -26,6 +26,7 @@ const ProfileButton = () => {
   const handleLogout = async () => {
     try {
       await logout()
+      localStorage.setItem('accessToken', '')
       update(null)
       router.push('/')
     } catch (error) {

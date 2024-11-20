@@ -46,7 +46,7 @@ export default async function auth(code: string) {
       maxAge: 2592000,
       path: '/',
       domain: '', // TODO: Change this to new domain after deployment
-      secure: false,
+      secure: true,
       httpOnly: true,
     })
 
@@ -57,7 +57,7 @@ export default async function auth(code: string) {
   } catch (error) {
     return {
       type: 'error',
-      message: error,
+      message: 'Server error occurred',
     }
   }
 }

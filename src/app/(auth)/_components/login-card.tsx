@@ -29,8 +29,6 @@ const LoginCard = () => {
           return
         }
         console.log('action response: ', res.message)
-        console.log('action response: ', res.message)
-        // console.log('data: ', data)
         window.location.href = '/morph'
       } catch (error) {
         toast({

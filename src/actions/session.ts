@@ -27,6 +27,7 @@ const getSelf = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/self`, {
       method: 'GET',
       headers: {
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${cookieStore.get('accessToken')?.value}`,
       },
       credentials: 'include',

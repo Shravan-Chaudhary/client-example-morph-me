@@ -22,7 +22,6 @@ const LoginCard = () => {
             headers: {
               'Content-Type': 'application/json',
             },
-            credentials: 'include',
           },
         )
         if (!res.ok) {
@@ -35,7 +34,8 @@ const LoginCard = () => {
           return
         }
         const data = await res.json()
-        // console.log('outhresponse: ', data)
+        console.log('outhresponse: ', data)
+        console.log('data: ', data)
         window.location.href = '/morph'
       } catch (error) {
         toast({

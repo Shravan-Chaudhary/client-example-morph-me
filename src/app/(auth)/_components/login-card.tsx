@@ -1,27 +1,62 @@
 'use client'
 
-import React from 'react'
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { ArrowRight, Fingerprint } from 'lucide-react'
 import { Icons } from '@/components'
+import { useToast } from '@/components/hooks/use-toast'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 import { useGoogleLogin } from '@react-oauth/google'
-import axios from 'axios'
+import { ArrowRight, Fingerprint } from 'lucide-react'
 
 const LoginCard = () => {
+  const { toast } = useToast()
+  // const router = useRouter()
   const login = useGoogleLogin({
     onSuccess: async (token) => {
-      console.log(token.code)
-      const res = await axios.get(
-        `http://localhost:8080/auth/google/callback?code=${token.code}`,
-      )
-      console.log('from golagn:', res.data)
+      // console.log('token from google: ', token)
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google/callback?code=${token.code}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+          },
+        )
+        if (!res.ok) {
+          toast({
+            variant: 'destructive',
+            title: 'Error',
+            description: 'Error Loggin in. Please try again.',
+            duration: 2000,
+          })
+          return
+        }
+        const data = await res.json()
+        // console.log('outhresponse: ', data)
+        window.location.href = '/morph'
+      } catch (error) {
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: 'Error Loggin in. Please try again.',
+          duration: 2000,
+        })
+      }
     },
     onError: (error) => {
       console.error(error)
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Error Loggin in. Please try again.',
+        duration: 2000,
+      })
     },
     flow: 'auth-code',
+    ux_mode: 'popup',
   })
 
   return (

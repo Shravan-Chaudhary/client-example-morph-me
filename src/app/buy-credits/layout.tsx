@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const MorphLayout = async ({ children }: Props) => {
+const PricingLayout = async ({ children }: Props) => {
   const session = await getSession()
   if (!session) {
     redirect('/sign-in')
@@ -21,4 +21,4 @@ const MorphLayout = async ({ children }: Props) => {
   )
 }
 
-export default MorphLayout
+export default PricingLayout

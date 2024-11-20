@@ -6,7 +6,7 @@ export default async function auth(code: string) {
   const cookieStore = await cookies()
   try {
     const res = await fetch(
-      `${process.env.BASE_URL}/auth/google/callback?code=${code}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google/callback?code=${code}`,
       {
         method: 'GET',
         headers: {
@@ -57,7 +57,7 @@ export default async function auth(code: string) {
   } catch (error) {
     return {
       type: 'error',
-      message: 'Server error occurred',
+      message: error,
     }
   }
 }

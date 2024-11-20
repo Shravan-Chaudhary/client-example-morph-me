@@ -24,8 +24,11 @@ const LoginCard = () => {
             description: 'Error Loggin in. Please try again.',
             duration: 2000,
           })
+
+          console.log('action response: ', res.message)
           return
         }
+        console.log('action response: ', res.message)
         console.log('action response: ', res.message)
         // console.log('data: ', data)
         window.location.href = '/morph'

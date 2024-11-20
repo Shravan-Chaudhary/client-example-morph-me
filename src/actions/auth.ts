@@ -48,6 +48,7 @@ export default async function auth(code: string) {
       domain: 'morph-me.vercel.app', // TODO: Change this to new domain after deployment
       secure: true,
       httpOnly: true,
+      sameSite: 'none',
     })
 
     return {

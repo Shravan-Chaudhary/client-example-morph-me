@@ -163,3 +163,62 @@ export const reviews = [
     body: "I'm at a loss for words. This is amazing. I love it.",
   },
 ]
+
+export const tweetData = [
+  {
+    id: 1,
+    author: 'Akash',
+    handle: '@akash_creates',
+    content:
+      'My gaming squad lost it when I showed up as a perfect Minecraft character! MorphMe is pure magic 🎮 #AImagic',
+    image: '/placeholder.svg',
+  },
+  {
+    id: 2,
+    author: 'Ayush',
+    handle: '@sengar_ayush',
+    content:
+      "Can't stop morphing! Started with one selfie, now I have a whole gallery of AI-transformed portraits ✨. #PhotoFun",
+    image: '/placeholder.svg',
+  },
+  {
+    id: 3,
+    author: 'Bharat',
+    handle: '@techilicious',
+    content:
+      'The clay filter turned me into a museum masterpiece! Super impressed with how fast it works 🎨',
+    image: '/placeholder.svg',
+  },
+  {
+    id: 4,
+    author: 'Nishkarsh',
+    handle: '@nishkarsh_k',
+    content:
+      'From selfie to emoji in seconds! Perfect for spicing up those work chats 😄',
+    image: '/placeholder.svg',
+  },
+  {
+    id: 5,
+    author: 'Shubhanshu',
+    handle: '@shub',
+    content:
+      'Made my whole team into superheroes for our meeting! Even the boss loved it 💫',
+    image: '/placeholder.svg',
+  },
+  {
+    id: 6,
+    author: 'Navya',
+    handle: '@lady_navya',
+    content:
+      'These AI styles are amazing! Perfect for my creative portfolio ✨ #AIart',
+    image: '/placeholder.svg',
+  },
+  {
+    id: 7,
+    author: 'Alice',
+    handle: '@alice_in_tech',
+    content:
+      'One selfie, endless possibilities! Each transformation feels like magic ⭐',
+    image: '/placeholder.svg',
+  },
+]

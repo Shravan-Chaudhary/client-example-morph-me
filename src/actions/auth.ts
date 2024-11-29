@@ -3,7 +3,7 @@ import * as cookie from 'cookie'
 import { cookies } from 'next/headers'
 
 export default async function auth(code: string) {
-  const cookieStore = await cookies()
+  const cookieStore = cookies()
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google/callback?code=${code}`,
@@ -45,7 +45,6 @@ export default async function auth(code: string) {
       value: parsedAccessToken.accessToken as string,
       maxAge: 2592000,
       path: '/',
-      domain: 'morph-me.vercel.app', // TODO: Change this to new domain after deployment
       secure: true,
       httpOnly: true,
       sameSite: 'none',
